@@ -31,7 +31,9 @@ names(sub_test) <- "Subject"
 features <- read.table("./data/UCI HAR Dataset/features.txt", header=F, stringsAsFactors=F)
 labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt", header=F, stringsAsFactors=F)
 
+
 ## 1. Merge the training and the test sets to create on data set
+
 merged <- rbind(cbind(Y_train, sub_train, X_train),
                 cbind(Y_test, sub_test, X_test))
 
@@ -40,6 +42,7 @@ for (i in c(1, 2)) {
     merged[[i]] <- as.factor(merged[[i]])
 }
 
+
 ## 3. Use decriptive activity names to name the activities in the dataset
 
 Activity_label <- c(labels$V2)
@@ -47,13 +50,18 @@ names(Activity_label) <- labels$V1
 
 merged$Activity <- Activity_label[merged$Activity]
 
+
 ## 4. Label the dataset with descriptive variable names
+
 names(merged)[3:ncol(merged)] <- features$V2
+
 
 ## 2. Extract only the measurements on the mean
 ## and the standard deviation for each measurement
+
 merged_mean_std <- merged[,c(1, 2, grep("(mean\\W)|(std\\W)", names(merged)))]
 merged_mean_std[1:6, 1:6]
+
 
 ## 5. Create a second, independent dataset with the average of
 ## each variable for each activity and each subject
