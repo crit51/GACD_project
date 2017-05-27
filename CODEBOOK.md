@@ -7,8 +7,8 @@ This project used the dataset names `Human Activity Recognition Using Smartphone
 ## Variables
 
 - `X_train`, `Y_train`, `sub_train`, `X_test`, `Y_test`, `sub_test`, `features`, and `labels`<br>
-From the source data
+From the source data<br>
 - `merged`<br>
-All of the above data are merged
+All of the above data are merged<br>
 - `merged_summarized`<br>
 The average of each variable is summarized by each activity and each subject. `merge_sumarized` is saved as `project_submission.csv`.
