@@ -6,7 +6,7 @@ This repository is for assignment submission for Coursera class <b>Getting and c
 - `project_submission_code.R`<br>
 R code file contains the process I've done for the project.
 
-- `project_submission.csv`<br>
+- `project_submission.txt`<br>
 A tidy dataset that was described from the assignment instruction. It is the output of execution of `project_submission_code.R` file.
 
 - `CODEBOOK.md`<br>

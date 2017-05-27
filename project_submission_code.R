@@ -69,4 +69,4 @@ merged_mean_std[1:6, 1:6]
 merged_summarized <- aggregate(merged[,3:ncol(merged)],
                                by=list(Subject=merged$Subject, Activity=merged$Activity), mean)
 merged_summarized[1:6, 1:6]
-write.csv(merged_summarized, "project_submission.csv", row.names=F)
+write.table(merged_summarized, "project_submission.txt", row.names=F)

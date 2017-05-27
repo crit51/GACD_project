@@ -15,4 +15,4 @@ From the source data<br>
 All of the above data are merged. First, `Y_train`, `sub_train`, `X_train` are merged with `cbind`<br> and the same for the test sets. Then, train ans test sets are merged with `rbind`. And then, descriptive activity names (from `labels` data) and descriptive variable names (from `features` data) are labeled appropriately.
 
 - `merged_summarized`<br>
-The average of each variable is summarized by each activity and each subject using `aggregate` function. This data is saved as `project_submission.csv` for submission.
+The average of each variable is summarized by each activity and each subject using `aggregate` function. This data is saved as `project_submission.txt` for submission.
