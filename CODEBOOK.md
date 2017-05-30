@@ -24,11 +24,10 @@ Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
           "STANDING"             "LAYING"
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;This way, I was able to extract the descriptive activity names by using the coded numbers. This was done by using the following code:
+This way, I was able to extract the descriptive activity names by using the coded numbers. This was done by using the following code:
 
 ```
 merged$activity <- Activity_label[merged$activity]
-
 ```
 
 - Next step was to extract only the measurements on the mean and standard deviation for each measurement. In order to do that, I first created `indices` vaiable for (obviously) indexing. I used `grep()` to get indices of the variable names that contain 'mean()' and 'std()', not to mention 'activity' and 'subject'. And then, I simply extracted only the variables of interest and assign them to a dataframe named `extracted`.
