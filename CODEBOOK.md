@@ -8,9 +8,9 @@ Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
 
 ## Explanation of variables and the steps that I performed
 
-- `X_train`, `Y_train`, `sub_train`, `X_test`, `Y_test`, `sub_test`, `features`, and `labels`<br> are from the source data.<br>
+- `X_train`, `Y_train`, `sub_train`, `X_test`, `Y_test`, `sub_test`, `features`, and `labels` are from the source data.
 
-- In `merged`<br>, all of the above data are merged. First, `Y_train`, `sub_train`, `X_train` are merged with `cbind`<br> and the same for the test sets. Then, those train and test sets are merged with `rbind`.
+- All of the above data are merged into a dataframe named `merged`. First, `Y_train`, `sub_train`, `X_train` are merged with `cbind`<br> and the same for the test sets. Then, those train and test sets are merged with `rbind`.
 
 - After that, I named the variables appropriately using the names in the `features` dataset.
 
@@ -24,15 +24,30 @@ Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
           "STANDING"             "LAYING"
 ```
 
-This way, we can extract the descriptive activity names by using the coded numbers. This was done by using this code:
+This way, I was able to extract the descriptive activity names by using the coded numbers. This was done by using the following code:
 
 ```
 merged$activity <- Activity_label[merged$activity]
 
 ```
 
-- `extracted`<br>
-From `merged` dataset, only the measurements on the mean and standard deviation for each measurement are extracted.
+- Next step was to extract only the measurements on the mean and standard deviation for each measurement. In order to do that, I first created `indices` vaiable for (obviously) indexing. I used `grep()` to get indices of the variable names that contain 'mean()' and 'std()', not to mention 'activity' and 'subject'. And then, I simply extracted only the variables of interest and assign them to a dataframe named `extracted`.
 
-- `tidy_data`
-The average of each variable is summarized by each activity and each subject using `aggregate` function. And then, this dataset is arranged by subject ID. This data is saved as `run_analysis.txt` for submission.
+- Finally, I created a `tidy_data` with the average of each variable for each activity and each subject. I used `aggregate()` function. Actually, I tried to use `dplyr::summarize_all()` along with `dplyr::group_by()`, but it raised an error. Anyway, after that, I arranged this dataframe in an ascending order of subject, because I thought this way is right.
+
+- `tidy_data` looks like this:
+
+```
+> tidy_data[1:6, 1:6]
+  subject           activity tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z tBodyAcc-std()-X
+1       1             LAYING         0.2215982      -0.040513953        -0.1132036      -0.92805647
+2       1            SITTING         0.2612376      -0.001308288        -0.1045442      -0.97722901
+3       1           STANDING         0.2789176      -0.016137590        -0.1106018      -0.99575990
+4       1            WALKING         0.2773308      -0.017383819        -0.1111481      -0.28374026
+5       1 WALKING_DOWNSTAIRS         0.2891883      -0.009918505        -0.1075662       0.03003534
+6       1   WALKING_UPSTAIRS         0.2554617      -0.023953149        -0.0973020      -0.35470803
+```
+
+I think I've done it right, but I'm not sure.
+
+- As a last step, I saved `tidy_data` as `run_analysis.txt` using `write,table()` function. This is the submission file.
