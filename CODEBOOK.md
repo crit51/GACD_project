@@ -10,7 +10,7 @@ Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
 
 - `X_train`, `Y_train`, `sub_train`, `X_test`, `Y_test`, `sub_test`, `features`, and `labels` are from the source data.
 
-- All of the above data are merged into a dataframe named `merged`. First, `Y_train`, `sub_train`, `X_train` are merged with `cbind`<br> and the same for the test sets. Then, those train and test sets are merged with `rbind`.
+- All of the above data are merged into a dataframe named `merged`. First, `Y_train`, `sub_train`, `X_train` are merged with `cbind` and the same for the test sets. Then, those train and test sets are merged with `rbind`.
 
 - After that, I named the variables appropriately using the names in the `features` dataset.
 
