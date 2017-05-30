@@ -10,4 +10,4 @@ R code file contains the process I've done for the project.
 A tidy dataset that was described from the assignment instruction. It is the output of execution of `run_analysis.R` file.
 
 - `CODEBOOK.md`<br>
-A code book about all the variables and summaries calculated, along with units, and any other relevant information.
+A code book about all the variables and summaries calculated, along with units, and any other relevant information. I described the stepped I performed to do clean up the data and create a tidy data set.
