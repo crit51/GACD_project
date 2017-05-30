@@ -24,7 +24,7 @@ Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
           "STANDING"             "LAYING"
 ```
 
-$\qquad$This way, I was able to extract the descriptive activity names by using the coded numbers. This was done by using the following code:
+&nbsp;&nbsp;&nbsp;&nbsp;This way, I was able to extract the descriptive activity names by using the coded numbers. This was done by using the following code:
 
 ```
 merged$activity <- Activity_label[merged$activity]
